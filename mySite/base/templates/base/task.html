@@ -1,6 +1,13 @@
 <a href="{% url 'tasks' %}">Go back</a>
+<h3>Status:{%if task.complete%} Complete{%else%} Incomplete{%endif%}</h3>
 <h1>Task: {{task.title}} </h1>
 
 {% if task.description %}
 <h3>Description: {{task.description}}</h3>
 {% endif %}
+
+<form action="{% url 'complete_task' task.id %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Complete">
+</form>
+

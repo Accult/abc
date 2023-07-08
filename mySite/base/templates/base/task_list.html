@@ -5,9 +5,12 @@
     </tr>
     {%for task in tasks%}
     <tr>
-        <td><a href="{% url 'task' pk=task.pk%}">{{ task.title }}</a></td>
+        <td><a href="{% url 'task' pk=task.id%}">{{ task.title }}</a></td>
+        <td>{% if task.complete %}Complete{% else %}Incomplete{% endif %}</td>
     </tr>
     {% empty %}
-    <h3>No items in list</h3>
+    <tr>
+        <td colspan="2"><h3>No tasks in list</h3></td>
+    </tr>
     {%endfor %}
 </table>

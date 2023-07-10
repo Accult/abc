@@ -10,4 +10,12 @@
     {% csrf_token %}
     <input type="submit" value="Complete">
 </form>
+<th>
+<td><a href="{% url 'edit_task' pk=task.id %}">Edit</a></td>
+
+<td><a href="{% url 'confirm_delete' task.id %}" class="button">Delete</a></td>
+</th>
+
+
+
 

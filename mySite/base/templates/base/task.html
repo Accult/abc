@@ -8,7 +8,7 @@
 
 <form action="{% url 'complete_task' task.id %}" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Complete">
+    <input type="submit" value="{%if task.complete%}Incomplete{%else%}Complete{%endif%}">
 </form>
 <th>
 <td><a href="{% url 'edit_task' pk=task.id %}">Edit</a></td>
